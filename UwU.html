@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Game Cho Cậu 💖</title>
+<div class="container">
+  <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2024/01/avartar-anime-6.jpg" alt="Ảnh cute" style="max-width: 100%; border-radius: 15px; margin-bottom: 20px;" />
+  <title>Trả lời vui vẻ hong quạu 💖</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -24,8 +26,12 @@
     }
     .question {
       margin: 20px 0;
+      transition: all 0.5s ease;
     }
-    button {
+    .hidden {
+      display: none;
+    }
+    .btn {
       padding: 10px 20px;
       margin: 10px;
       border: none;
@@ -34,8 +40,9 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
-    button:hover {
+    .btn:hover {
       background-color: #ff69b4;
     }
     #result {
@@ -48,49 +55,37 @@
 </head>
 <body>
   <div class="container">
-    <h1>Mini Game Dành Riêng Cho Cậu 💕</h1>
+    <h1>Trả lời đàng hoàn nhaa 💕</h1>
+    
     <div class="question" id="q1">
-      <p>1. Cậu thích gì hơn?</p>
-      <button onclick="nextQuestion('q1', 'q2')">Trà sữa</button>
-      <button onclick="nextQuestion('q1', 'q2')">Cafe</button>
+      <p>1. Có còn thương tui nữa hongg </p>
+      <button class="btn" onclick="nextQuestion('q1', true)">Hong</button>
+      <button class="btn" onclick="wrongAnswer(this)">Cóoo</button>
     </div>
-    <div class="question" id="q2" style="display: none;">
-      <p>2. Cậu thường ngủ lúc mấy giờ?</p>
-      <button onclick="nextQuestion('q2', 'q3')">Trước 11h</button>
-      <button onclick="nextQuestion('q2', 'q3')">Sau 11h</button>
-    </div>
-    <div class="question" id="q3" style="display: none;">
-      <p>3. Cậu có hay nói mơ không?</p>
-      <button onclick="nextQuestion('q3', 'q4')">Cóoo 😅</button>
-      <button onclick="nextQuestion('q3', 'q4')">Không nha 😴</button>
-    </div>
-    <div class="question" id="q4" style="display: none;">
-      <p>4. Nếu được đi chơi, cậu thích đi đâu?</p>
-      <button onclick="nextQuestion('q4', 'q5')">Biển</button>
-      <button onclick="nextQuestion('q4', 'q5')">Đà Lạt</button>
-    </div>
-    <div class="question" id="q5" style="display: none;">
-      <p>5. Cậu thấy mình là người như nào?</p>
-      <button onclick="showResult()">Dễ thương</button>
-      <button onclick="showResult()">Lạnh lùng</button>
-    </div>
+
+    <!-- Add more questions manually here, giống như q1 -->
+
     <div id="result">
-      <h2>💌 Cảm ơn vì chơi tới đây 💌</h2>
-      <p>Thật ra tui tạo cái này chỉ để nói rằng...</p>
-      <p style="font-size: 22px;"><strong>Tui thích cậu đó 😳</strong></p>
-      <p>Muốn làm bạn thân với cậu thiệt lâu luôn 💖</p>
+      <h2>💌 Biết ngayy màaa ,hết thương ròii </h2>
+      <p>UwU :) </p>
     </div>
   </div>
 
   <script>
-    function nextQuestion(current, next) {
-      document.getElementById(current).style.display = 'none';
-      document.getElementById(next).style.display = 'block';
+    function nextQuestion(currentId, isLast = false) {
+      document.getElementById(currentId).classList.add('hidden');
+      if (isLast) {
+        document.getElementById('result').style.display = 'block';
+      } else {
+        // Nếu có nhiều câu thì mở câu tiếp theo ở đây
+        // Ví dụ: document.getElementById('q2').style.display = 'block';
+      }
     }
 
-    function showResult() {
-      document.querySelectorAll('.question').forEach(q => q.style.display = 'none');
-      document.getElementById('result').style.display = 'block';
+    function wrongAnswer(button) {
+      const randomX = Math.floor(Math.random() * 201) - 100; // từ -100 đến 100
+      const randomY = Math.floor(Math.random() * 101) - 50;  // từ -50 đến 50
+      button.style.transform = `translate(${randomX}px, ${randomY}px)`;
     }
   </script>
 </body>
