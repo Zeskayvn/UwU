@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Game Cho Cậu 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+    h1 {
+      color: #ff69b4;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ffb6c1;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff69b4;
+    }
+    #result {
+      display: none;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #e75480;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mini Game Dành Riêng Cho Cậu 💕</h1>
+    <div class="question" id="q1">
+      <p>1. Cậu thích gì hơn?</p>
+      <button onclick="nextQuestion('q1', 'q2')">Trà sữa</button>
+      <button onclick="nextQuestion('q1', 'q2')">Cafe</button>
+    </div>
+    <div class="question" id="q2" style="display: none;">
+      <p>2. Cậu thường ngủ lúc mấy giờ?</p>
+      <button onclick="nextQuestion('q2', 'q3')">Trước 11h</button>
+      <button onclick="nextQuestion('q2', 'q3')">Sau 11h</button>
+    </div>
+    <div class="question" id="q3" style="display: none;">
+      <p>3. Cậu có hay nói mơ không?</p>
+      <button onclick="nextQuestion('q3', 'q4')">Cóoo 😅</button>
+      <button onclick="nextQuestion('q3', 'q4')">Không nha 😴</button>
+    </div>
+    <div class="question" id="q4" style="display: none;">
+      <p>4. Nếu được đi chơi, cậu thích đi đâu?</p>
+      <button onclick="nextQuestion('q4', 'q5')">Biển</button>
+      <button onclick="nextQuestion('q4', 'q5')">Đà Lạt</button>
+    </div>
+    <div class="question" id="q5" style="display: none;">
+      <p>5. Cậu thấy mình là người như nào?</p>
+      <button onclick="showResult()">Dễ thương</button>
+      <button onclick="showResult()">Lạnh lùng</button>
+    </div>
+    <div id="result">
+      <h2>💌 Cảm ơn vì chơi tới đây 💌</h2>
+      <p>Thật ra tui tạo cái này chỉ để nói rằng...</p>
+      <p style="font-size: 22px;"><strong>Tui thích cậu đó 😳</strong></p>
+      <p>Muốn làm bạn thân với cậu thiệt lâu luôn 💖</p>
+    </div>
+  </div>
+
+  <script>
+    function nextQuestion(current, next) {
+      document.getElementById(current).style.display = 'none';
+      document.getElementById(next).style.display = 'block';
+    }
+
+    function showResult() {
+      document.querySelectorAll('.question').forEach(q => q.style.display = 'none');
+      document.getElementById('result').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
